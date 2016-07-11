@@ -14,17 +14,6 @@ export class Questions {
 
 		console.log(this.data);
 
-		this.questions = [
-			{
-				"title"  : "question 1",
-				"answers": ["a", "b", "c", "d"]
-			},
-			{
-				"title"  : "question 2",
-				"answers": ["a", "b", "c", "d"]
-			}
-		];
-
 		this.getQuestions();
 	}
 
