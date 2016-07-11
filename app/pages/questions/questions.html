@@ -1,0 +1,20 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>Questions</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-card *ngFor="let question of questions">
+		<ion-card-content>
+			<p>{{question.id}}) {{question.title}}</p>
+
+			<ion-item>
+				<ion-label>Select answer</ion-label>
+				<ion-select (ionChange)="setSelected(question.id, $event)">
+					<ion-option *ngFor="let answer of question.answers" [value]="answer">{{answer}}</ion-option>
+				</ion-select>
+			</ion-item>
+		</ion-card-content>
+	</ion-card>
+</ion-content>
