@@ -8,7 +8,6 @@
 	<ion-card *ngFor="let question of questions">
 		<ion-card-content>
 			<p>{{question.id}}) {{question.title}}</p>
-
 			<ion-item>
 				<ion-label>Select answer</ion-label>
 				<ion-select (ionChange)="setSelected(question.id, $event)">
