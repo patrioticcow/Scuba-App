@@ -5,7 +5,8 @@ import {App, Page, Slides, Alert, NavController, NavParams, List} from 'ionic-an
 	templateUrl: 'build/pages/questions/questions.html'
 })
 export class Questions {
-	@ViewChild('questionSlideOptions') slider: Slides;
+	@ViewChild('questionSlideOptions') slider:Slides;
+	@ViewChild('button') button;
 
 	name:any;
 	data:any;
@@ -16,8 +17,6 @@ export class Questions {
 
 	constructor(private app:App, private navParams:NavParams) {
 		this.data = this.navParams.data;
-
-		console.log(this.data);
 
 		this.getQuestions();
 	}
@@ -32,8 +31,19 @@ export class Questions {
 		this.name      = this.data.name;
 	}
 
-	setSelected(data, id) {
-		console.log(data);
-		console.log(id);
+	setSelected(event, id, answer) {
+		id = parseInt(id);
+
+		for (let i = 0; i < this.questions.length; i++) {
+			if (id === this.questions[i].id) {
+				if (answer === this.questions[i].answer) {
+					console.log(this.questions[i]);
+				} else {
+
+				}
+				console.log(this.button);
+				console.log(event.target.attributes);
+			}
+		}
 	}
 }

@@ -23,7 +23,6 @@ export class HomePage {
 
 		this.quizData.getQuiz().then(data => {
 			this.groups = data;
-			console.log(data);
 		});
 	}
 

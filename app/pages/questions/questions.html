@@ -7,9 +7,9 @@
 <ion-content>
 	<ion-slides pager #questionSlideOptions (ionDidChange)="onSlideChanged()" [options]="questionSlideOptions">
 		<ion-slide padding class="question-item" *ngFor="let question of questions">
-			<h2>{{question.id}}) {{question.title}}</h2>
+			<p>{{question.id}}) {{question.title}}</p>
 
-			<button block outline class="ws-normal" *ngFor="let answer of question.answers" (click)="setSelected(question.id, $event)">{{answer}}</button>
+			<button block outline class="ws-normal" #button id="answer{{question.id}}" *ngFor="let answer of question.answers" (click)="setSelected($event, question.id, answer)">{{answer}}</button>
 		</ion-slide>
 	</ion-slides>
 </ion-content>
