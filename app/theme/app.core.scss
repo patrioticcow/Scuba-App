@@ -3,3 +3,6 @@
 @import "../pages/home/home";
 @import "../pages/questions/questions";
 .alert-radio-label { white-space : normal; }
+.ws-normal { white-space : normal; }
+.question-item, .slide-zoom { text-align : left; }
+.question-item, .swiper-slide { align-items : baseline; }

@@ -1,15 +1,11 @@
 <ion-header>
 	<ion-navbar>
-		<ion-title>Home</ion-title>
+		<ion-title>Quiz Question Groups</ion-title>
 	</ion-navbar>
 </ion-header>
 
 <ion-content class="home">
 	<ion-card>
-		<ion-card-header>
-			Quiz Groups
-		</ion-card-header>
-
 		<ion-list *ngFor="let group of groups">
 			<button ion-item (click)="goToQuestions(group)">
 				<ion-icon name="cart" item-left></ion-icon>

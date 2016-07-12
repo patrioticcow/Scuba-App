@@ -5,15 +5,11 @@
 </ion-header>
 
 <ion-content>
-	<ion-card *ngFor="let question of questions">
-		<ion-card-content>
-			<p>{{question.id}}) {{question.title}}</p>
-			<ion-item>
-				<ion-label>Select answer</ion-label>
-				<ion-select (ionChange)="setSelected(question.id, $event)">
-					<ion-option *ngFor="let answer of question.answers" [value]="answer">{{answer}}</ion-option>
-				</ion-select>
-			</ion-item>
-		</ion-card-content>
-	</ion-card>
+	<ion-slides pager #questionSlideOptions (ionDidChange)="onSlideChanged()" [options]="questionSlideOptions">
+		<ion-slide padding class="question-item" *ngFor="let question of questions">
+			<h2>{{question.id}}) {{question.title}}</h2>
+
+			<button block outline class="ws-normal" *ngFor="let answer of question.answers" (click)="setSelected(question.id, $event)">{{answer}}</button>
+		</ion-slide>
+	</ion-slides>
 </ion-content>
