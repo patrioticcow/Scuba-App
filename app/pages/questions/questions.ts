@@ -23,26 +23,42 @@ export class Questions {
 
 	onSlideChanged() {
 		console.log(this.slider.isEnd());
-
 	}
 
 	getQuestions() {
-		this.questions = this.data.data;
+		this.questions = this.randomizeAnswers(this.data.data);
 		this.name      = this.data.name;
 	}
 
-	setSelected(event, id, answer) {
-		id = parseInt(id);
+	randomizeAnswers(data) {
+		for (let i = 0; i < data.length; i++) {
+			let array = data[i].answers;
+			for (var tmp, cur, top = array.length; top--;) {
+				cur        = (Math.random() * (top + 1)) << 0;
+				tmp        = array[cur];
+				array[cur] = array[top];
+				array[top] = tmp;
+			}
+
+			data[i].answers = array;
+		}
+
+		return data;
+	}
+
+	setSelected(id, answer, button) {
+		id           = parseInt(id);
+		let buttonEl = button._elementRef.nativeElement;
 
 		for (let i = 0; i < this.questions.length; i++) {
 			if (id === this.questions[i].id) {
 				if (answer === this.questions[i].answer) {
-					console.log(this.questions[i]);
+					console.warn(this.questions[i]);
+					buttonEl.className = 'button-green';
+					console.warn(buttonEl);
 				} else {
-
+					buttonEl.className = 'button-red';
 				}
-				console.log(this.button);
-				console.log(event.target.attributes);
 			}
 		}
 	}

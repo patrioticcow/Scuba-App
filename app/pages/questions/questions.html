@@ -4,12 +4,12 @@
 	</ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="questions">
 	<ion-slides pager #questionSlideOptions (ionDidChange)="onSlideChanged()" [options]="questionSlideOptions">
 		<ion-slide padding class="question-item" *ngFor="let question of questions">
 			<p>{{question.id}}) {{question.title}}</p>
 
-			<button block outline class="ws-normal" #button id="answer{{question.id}}" *ngFor="let answer of question.answers" (click)="setSelected($event, question.id, answer)">{{answer}}</button>
+			<button block outline class="ws-normal" #button id="answer{{question.key}}" *ngFor="let answer of question.answers" (click)="setSelected(question.id, answer, button)">{{answer}}</button>
 		</ion-slide>
 	</ion-slides>
 </ion-content>
