@@ -5,9 +5,9 @@
 .alert-radio-label { white-space : normal; }
 .ws-normal { white-space : normal; }
 .gray-bg { background-color : #EEEEEE; }
-.button-green { color : #FFFFFF; background-color : #32db64; border-color : #32db64; }
-.button-blue { color : #FFFFFF; background-color : #387EF5; border-color : #387EF5; }
-.button-red { color : #FFFFFF; background-color : #F53D3D; border-color : #F53D3D; }
+.button-green { color : #32DB64; border-color : #32DB64; }
+.button-blue { color : #387EF5; border-color : #387EF5; }
+.button-red { color : #F53D3D; border-color : #F53D3D; }
 .question-item, .slide-zoom { text-align : left; }
 .question-item, .swiper-slide { align-items : baseline; }
-.question-item button { white-space : normal !important; }
+.question-item button { white-space : normal !important; margin-bottom : 10px; }

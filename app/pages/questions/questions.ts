@@ -49,16 +49,20 @@ export class Questions {
 	setSelected(id, answer, button) {
 		id           = parseInt(id);
 		let buttonEl = button._elementRef.nativeElement;
+		let isCorrect;
 
 		for (let i = 0; i < this.questions.length; i++) {
 			if (id === this.questions[i].id) {
 				if (answer === this.questions[i].answer) {
-					console.warn(this.questions[i]);
 					buttonEl.className = 'button-green';
-					console.warn(buttonEl);
+					isCorrect          = true;
 				} else {
 					buttonEl.className = 'button-red';
+					isCorrect          = false;
 				}
+
+				console.warn(this.questions[i]);
+				console.warn(isCorrect);
 			}
 		}
 	}

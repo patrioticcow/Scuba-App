@@ -54,8 +54,8 @@
       <file leaf-file-name="questions.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/questions/questions.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+            <state relative-caret-position="-9">
+              <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
               </folding>
@@ -91,6 +91,9 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpServers">
+    <servers />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
@@ -269,6 +272,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="f286acdb-8f0d-47a2-9ebc-fed2dd447b62" name="Default" comment="" />
@@ -276,12 +282,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1468381014338</updated>
-      <workItem from="1468381015648" duration="3801000" />
+      <workItem from="1468381015648" duration="5043000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3801000" />
+    <option name="totallyTimeSpent" value="5043000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -365,8 +371,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/questions/questions.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        <state relative-caret-position="-9">
+          <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>
