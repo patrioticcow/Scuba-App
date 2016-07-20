@@ -9,7 +9,7 @@
 		<ion-slide padding class="question-item" *ngFor="let question of questions">
 			<p>{{question.id}}) {{question.title}}</p>
 
-			<button block outline class="ws-normal" #button id="answer{{question.key}}" *ngFor="let answer of question.answers" (click)="setSelected(question.id, answer, button)">{{answer}}</button>
+			<button block outline #button class="ws-normal answer{{question.id}}" *ngFor="let answer of question.answers" (click)="setSelected(question.id, answer, button)">{{answer}}</button>
 		</ion-slide>
 	</ion-slides>
 </ion-content>
