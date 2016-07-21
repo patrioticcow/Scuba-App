@@ -79,7 +79,6 @@ export class Questions {
 		}
 
 		for (let j = 0; j < buttons.length; j++) {
-			console.log(buttons[j]);
 			buttons[j].setAttribute('disabled', 'true');
 		}
 	}
