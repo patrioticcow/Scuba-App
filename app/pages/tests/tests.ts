@@ -6,7 +6,7 @@ import {QuestionsPage} from '../questions/questions';
 import {QuizStorage} from '../../providers/quiz-storage';
 
 @Component({
-	templateUrl: 'build/pages/home/home.html',
+	templateUrl: 'build/pages/tests/tests.html',
 	providers  : [QuizData, QuizStorage]
 })
 export class TestsPage {

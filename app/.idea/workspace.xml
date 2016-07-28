@@ -53,11 +53,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="home.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/home/home.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state relative-caret-position="88">
+              <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -95,11 +95,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tests.ts" pinned="false" current-in-tab="false">
+      <file leaf-file-name="tests.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/tests/tests.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="8" column="46" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
+            <state relative-caret-position="154">
+              <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -131,12 +131,12 @@
         <option value="&lt;1834eed6-897c-4d2c-972f-f47eb8b89cc9&gt;/scuba/quiz.php" />
         <option value="$PROJECT_DIR$/theme/app.core.scss" />
         <option value="$PROJECT_DIR$/pages/tests/tests.html" />
-        <option value="$PROJECT_DIR$/pages/tests/tests.ts" />
         <option value="$PROJECT_DIR$/pages/tabs/tabs.html" />
         <option value="$PROJECT_DIR$/pages/tabs/tabs.ts" />
         <option value="$PROJECT_DIR$/pages/questions/questions.ts" />
         <option value="$PROJECT_DIR$/pages/home/home.html" />
         <option value="$PROJECT_DIR$/pages/home/home.ts" />
+        <option value="$PROJECT_DIR$/pages/tests/tests.ts" />
       </list>
     </option>
   </component>
@@ -353,12 +353,12 @@
       <workItem from="1469495192410" duration="44000" />
       <workItem from="1469498892363" duration="7664000" />
       <workItem from="1469511256491" duration="13042000" />
-      <workItem from="1469674860322" duration="5990000" />
+      <workItem from="1469674860322" duration="6050000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35144000" />
+    <option name="totallyTimeSpent" value="35204000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -735,16 +735,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/tests/tests.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="46" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/tests/tests.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
@@ -773,8 +763,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/home/home.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state relative-caret-position="88">
+          <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/tests/tests.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
