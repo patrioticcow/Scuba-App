@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content class="questions">
-	<ion-slides pager #questionSlideOptions (ionDidChange)="onSlideChanged()" [options]="questionSlideOptions">
+	<ion-slides pager #questionSlideOptions [options]="questionSlideOptions">
 		<ion-slide padding class="question-item" *ngFor="let question of questions">
 			<p>{{question.id}}) {{question.title}}</p>
 

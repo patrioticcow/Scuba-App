@@ -1,0 +1,22 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>Quiz Question Groups</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content class="home gray-bg">
+	<ion-card class="transparent question-card">
+		<div *ngFor="let group of groups" class="question-list">
+			<ion-list class="ion-list">
+				<button ion-item (click)="goToQuestions(group)">
+					<ion-icon name="albums-outline" item-left></ion-icon>
+					{{group.name}}
+				</button>
+			</ion-list>
+			<div class="question-list-badge">
+				<span>Correct <ion-badge secondary item-right>0</ion-badge></span>
+				<span>Incorrect <ion-badge danger item-right>0</ion-badge></span>
+			</div>
+		</div>
+	</ion-card>
+</ion-content>

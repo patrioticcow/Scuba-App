@@ -1,16 +1,17 @@
 <ion-header>
 	<ion-navbar>
-		<ion-title>Quiz Question Groups</ion-title>
+		<ion-title>
+			Contact
+		</ion-title>
 	</ion-navbar>
 </ion-header>
 
-<ion-content class="home gray-bg">
-	<ion-card>
-		<ion-list *ngFor="let group of groups">
-			<button ion-item (click)="goToQuestions(group)">
-				<ion-icon name="albums-outline" item-left></ion-icon>
-				{{group.name}}
-			</button>
-		</ion-list>
-	</ion-card>
+<ion-content>
+	<ion-list>
+		<ion-list-header>Follow us on Twitter</ion-list-header>
+		<ion-item>
+			<ion-icon name="ionic" item-left></ion-icon>
+			@ionicframework
+		</ion-item>
+	</ion-list>
 </ion-content>

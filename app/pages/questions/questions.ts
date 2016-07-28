@@ -1,39 +1,49 @@
 import {Component, ViewChild} from '@angular/core';
-import {App, Storage, SqlStorage, Page, Slides, Alert, NavController, NavParams, List} from 'ionic-angular';
+import {App, Slides, Alert, Loading, NavController, NavParams} from 'ionic-angular';
+import {HomePage} from '../home/home';
+import {QuizStorage} from '../../providers/quiz-storage';
 
 @Component({
-	templateUrl: 'build/pages/questions/questions.html'
+	templateUrl: 'build/pages/questions/questions.html',
+	providers  : [QuizStorage],
 })
-export class Questions {
+export class QuestionsPage {
 	@ViewChild('questionSlideOptions') slider: Slides;
 	@ViewChild('button') button;
 
 	name: any;
 	data: any;
 	questions: any;
-	storage: Storage     = null;
+	loading: any;
 	questionSlideOptions = {
 		loop: false
 	};
 
-	constructor(private app: App, private navParams: NavParams) {
-		this.storage = new Storage(SqlStorage, {name: '_questions', backupFlag: SqlStorage.BACKUP_LOCAL, existingDatabase: false});
+	constructor(private app: App, private navParams: NavParams, private nav: NavController, public quizStorage: QuizStorage) {
+		this.loading = Loading.create({
+			spinner: 'hide', content: 'Loading Please Wait...', dismissOnPageChange: true, duration: 1000
+		});
 
 		this.data = this.navParams.data;
-		this.storage.query('select * from questions').then((resp) => {
-			console.log(resp);
-		});
 		this.getQuestions();
+
+		//this.quizStorage.createTable();
+
+		//this.note = new Answer();
+		//console.log(this.note);
 	}
 
-	onSlideChanged() {
-		console.log(this.slider.isEnd());
+	ngAfterViewInit() {
+		this.nav.present(this.loading);
 	}
 
 	getQuestions() {
-		console.log(this.data.data);
 		this.questions = this.randomizeAnswers(this.data.data);
 		this.name      = this.data.name;
+
+		setTimeout(() => {
+			this.loading.dismiss();
+		}, 1000);
 	}
 
 	randomizeAnswers(data) {
@@ -63,23 +73,66 @@ export class Questions {
 			buttonEl.setAttribute('disabled', 'true');
 
 			if (id === this.questions[i].id) {
-				if (answer === this.questions[i].answer) {
+				let title;
+				let correctAnswer = this.questions[i].answer;
+
+				if (answer === correctAnswer) {
 					buttonEl.className = 'button-green';
-					isCorrect          = true;
+					isCorrect          = 'true';
+					title              = 'Correct';
 				} else {
 					buttonEl.className = 'button-red';
-					isCorrect          = false;
+					isCorrect          = 'false';
+					title              = 'Incorrect';
 				}
 
-				//let key   = this.questions[i].key + '_' + this.questions[i].group;
-				//let value = JSON.stringify({question: this.questions[i].id, group: this.questions[i].group, correct: isCorrect});
+				this.presentAlert(title, correctAnswer);
 
-				this.storage.query('insert into questions(question, group, correct) values("' + this.questions[i].id + '", "' + this.questions[i].group + '", "' + isCorrect + '")');
+				let indexId = this.slider.getActiveIndex();
+				let obj     = {question_id: this.questions[indexId].id, group_id: this.questions[indexId].group, is_correct: isCorrect};
+
+				this.quizStorage.getByQuestion(obj).then(data => {
+					if (data.res.rows.length === 0) {
+						this.quizStorage.saveAnswer(obj);
+					} else {
+						obj['id'] = data.res.rows[0].id;
+						this.quizStorage.updateAnswer(obj);
+						console.log(obj);
+					}
+				});
 			}
 		}
 
 		for (let j = 0; j < buttons.length; j++) {
 			buttons[j].setAttribute('disabled', 'true');
 		}
+	}
+
+	presentAlert(title, subTitle) {
+		let alert = Alert.create({
+			title   : '<span class="isQuestion' + title + '">' + title + '</span>',
+			subTitle: '<strong>Correct answer:</strong> ' + subTitle,
+			buttons : [{
+				text   : 'Next',
+				role   : 'cancel',
+				handler: () => {
+					let navTransition = alert.dismiss();
+
+					navTransition.then(() => {
+						let currentIndex = this.slider.getActiveIndex();
+
+						if (this.slider.isEnd()) {
+							this.nav.push(HomePage);
+						} else {
+							this.slider.slideTo(currentIndex + 1, 500);
+						}
+					});
+
+					return false;
+				}
+			}]
+		});
+
+		this.nav.present(alert);
 	}
 }
