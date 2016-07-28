@@ -1,6 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import {App, Slides, Alert, Loading, NavController, NavParams} from 'ionic-angular';
-import {HomePage} from '../home/home';
+import {TestsPage} from '../tests/tests';
 import {QuizStorage} from '../../providers/quiz-storage';
 
 @Component({
@@ -122,7 +122,7 @@ export class QuestionsPage {
 						let currentIndex = this.slider.getActiveIndex();
 
 						if (this.slider.isEnd()) {
-							this.nav.push(HomePage);
+							this.nav.push(TestsPage);
 						} else {
 							this.slider.slideTo(currentIndex + 1, 500);
 						}
