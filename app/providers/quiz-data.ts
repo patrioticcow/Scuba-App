@@ -22,6 +22,18 @@ export class QuizData {
 		});
 	}
 
+	loadNewQuiz() {
+		if (this.data) return Promise.resolve(this.data);
+
+		return new Promise(resolve => {
+			this.http.get(this.apiUrl + 'new_quiz.php?type=quiz').subscribe(res => {
+				this.data = res.json();
+
+				resolve(this.data);
+			});
+		});
+	}
+
 	getQuiz() {
 		return this.load('quiz').then(data => {
 			return this.generateArray(data);

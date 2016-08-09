@@ -40,6 +40,11 @@ export class QuizStorage {
 		this.storage.query(sql);
 	}
 
+	public removeAnswerByGroup(answer) {
+		let sql = 'DELETE FROM answers WHERE group_id = \"' + answer.group_id + '\"';
+		this.storage.query(sql);
+	}
+
 	public removeAnswer(answer) {
 		let sql = 'DELETE FROM answers WHERE id = \"' + answer.id + '\"';
 		this.storage.query(sql);

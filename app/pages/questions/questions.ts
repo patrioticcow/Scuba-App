@@ -16,7 +16,8 @@ export class QuestionsPage {
 	questions: any;
 	loading: any;
 	questionSlideOptions = {
-		loop: false
+		loop      : false,
+		pagination: false
 	};
 
 	constructor(private app: App, private navParams: NavParams, private nav: NavController, public quizStorage: QuizStorage) {
