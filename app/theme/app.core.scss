@@ -10,10 +10,10 @@
 .question-item button { white-space : normal !important; margin-bottom : 10px; }
 .isQuestionCorrect { color : #32DB64; }
 .isQuestionIncorrect { color : #F53D3D; }
-.question-card { box-shadow : none; }
+.question-card { box-shadow : none; margin-bottom: 20px; }
 .question-list .ion-list { border-left : 1px solid #C8C7CC; border-right : 1px solid #C8C7CC; }
 .question-list:first-child .ion-list { border-top : 1px solid #C8C7CC; }
-.top_image { width : 100px; margin : 0 auto; }
+.top_image { width : 200px; margin : 0 auto; display : block; }
 .tests-page { background : #E9F9FF; }
 .tests-page scroll-content { box-shadow : inset 0 0 100px #B1E9F8; }
 .about-page scroll-content { box-shadow : inset 0 0 100px #B1E9F8; }

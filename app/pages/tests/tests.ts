@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Observable} from "rxjs/Rx";
-import {App, Loading, NavController, Storage, LocalStorage} from 'ionic-angular';
+import {App, NavController, Storage, LocalStorage} from 'ionic-angular';
 import {QuizData} from '../../providers/quiz-data';
 import {QuestionsPage} from '../questions/questions';
 import {QuizStorage} from '../../providers/quiz-storage';
@@ -12,31 +12,18 @@ import {QuizStorage} from '../../providers/quiz-storage';
 export class TestsPage {
 	local: Storage = new Storage(LocalStorage);
 	groups         = [];
-	message;
-	loading;
+	message: any;
 
-	constructor(private app: App, private nav: NavController, private quizData: QuizData, private quizStorage: QuizStorage) {
-		this.loading = Loading.create({
-			spinner: 'hide', content: 'Loading. Please Wait...', dismissOnPageChange: true
-		});
+	constructor(private app: App, public nav: NavController, public quizData: QuizData, public quizStorage: QuizStorage) {
 	}
 
 	onPageWillEnter() {
-		console.log('home constructor');
-
-		this.nav.present(this.loading);
-		this.obsarvable();
-
+		this.observable();
 		this.getNewQuizData();
 	}
 
-	obsarvable() {
+	observable() {
 		Observable.forkJoin([this.getQuestionsFromDatabase(), this.getQuestions()]).subscribe(data => {
-			console.log(data);
-			setTimeout(() => {
-				this.loading.dismiss();
-			}, 1000);
-
 			for (let i = 0; i < data[1].length; i++) {
 				data[1][i]['correct']   = 0;
 				data[1][i]['incorrect'] = 0;
@@ -57,7 +44,6 @@ export class TestsPage {
 
 	getQuestionsFromDatabase() {
 		return this.quizStorage.getGroupAnswers().then(data => {
-			console.log(data);
 			let rows = data.res.rows;
 
 			if (rows.length === 0) return null;

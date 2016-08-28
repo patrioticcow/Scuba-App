@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {App, Slides, Alert, Loading, NavController, NavParams} from 'ionic-angular';
+import {App, Slides, AlertController, NavController, NavParams} from 'ionic-angular';
 import {TestsPage} from '../tests/tests';
 import {QuizStorage} from '../../providers/quiz-storage';
 
@@ -14,37 +14,19 @@ export class QuestionsPage {
 	name: any;
 	data: any;
 	questions: any;
-	loading: any;
-	questionSlideOptions = {
-		loop      : false,
-		pagination: false
-	};
 
-	constructor(private app: App, private navParams: NavParams, private nav: NavController, public quizStorage: QuizStorage) {
-		this.loading = Loading.create({
-			spinner: 'hide', content: 'Loading Please Wait...', dismissOnPageChange: true, duration: 1000
-		});
-
+	constructor(private app: App, public navParams: NavParams, public nav: NavController, public quizStorage: QuizStorage, public alertCtrl: AlertController) {
 		this.data = this.navParams.data;
 		this.getQuestions();
-
-		//this.quizStorage.createTable();
-
-		//this.note = new Answer();
-		//console.log(this.note);
 	}
 
 	ngAfterViewInit() {
-		this.nav.present(this.loading);
+
 	}
 
 	getQuestions() {
 		this.questions = this.randomizeAnswers(this.data.data);
 		this.name      = this.data.name;
-
-		setTimeout(() => {
-			this.loading.dismiss();
-		}, 1000);
 	}
 
 	randomizeAnswers(data) {
@@ -78,11 +60,11 @@ export class QuestionsPage {
 				let correctAnswer = this.questions[i].answer;
 
 				if (answer === correctAnswer) {
-					buttonEl.className = 'button-green';
+					buttonEl.className = 'button-green button button-outline button-block';
 					isCorrect          = 'true';
 					title              = 'Correct';
 				} else {
-					buttonEl.className = 'button-red';
+					buttonEl.className = 'button-red button button-outline button-block';
 					isCorrect          = 'false';
 					title              = 'Incorrect';
 				}
@@ -98,7 +80,6 @@ export class QuestionsPage {
 					} else {
 						obj['id'] = data.res.rows[0].id;
 						this.quizStorage.updateAnswer(obj);
-						console.log(obj);
 					}
 				});
 			}
@@ -110,7 +91,7 @@ export class QuestionsPage {
 	}
 
 	presentAlert(title, subTitle) {
-		let alert = Alert.create({
+		let alert = this.alertCtrl.create({
 			title   : '<span class="isQuestion' + title + '">' + title + '</span>',
 			subTitle: '<strong>Correct answer:</strong> ' + subTitle,
 			buttons : [{
@@ -134,6 +115,10 @@ export class QuestionsPage {
 			}]
 		});
 
-		this.nav.present(alert);
+		alert.present();
+	}
+
+	goToTests(data) {
+		this.nav.push(TestsPage, data);
 	}
 }

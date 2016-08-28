@@ -1,11 +1,9 @@
 <ion-header>
-	<ion-navbar hideBackButton *navbar>
-		<ion-title>Questions</ion-title>
-	</ion-navbar>
+	<ion-navbar></ion-navbar>
 </ion-header>
 
 <ion-content class="questions">
-	<ion-slides pager #questionSlideOptions [options]="questionSlideOptions">
+	<ion-slides pager #questionSlideOptions [options]="{loop: false, direction: 'vertical'}">
 		<ion-slide padding class="question-item" *ngFor="let question of questions">
 			<p>{{question.id}}) {{question.title}}</p>
 

@@ -1,8 +1,9 @@
 <ion-content class="home gray-bg tests-page">
 	<ion-card class="transparent question-card">
-		<img src="img/icon.png" alt="Scuba Tests" class="top_image">
+		<img src="img/logo-icon.png" alt="Scuba Test" class="top_image">
 
 		<button dark clear block disabled *ngIf="message !== ''" class="message">{{message}}</button>
+		<div *ngIf="group === ''" class="message">Loading questions, please wait..</div>
 
 		<div *ngFor="let group of groups" class="question-list">
 			<ion-list class="ion-list">
@@ -15,7 +16,7 @@
 			<div class="question-list-badge">
 				<span>Correct <ion-badge secondary item-right>{{group.correct}}</ion-badge></span>
 				<span>Incorrect <ion-badge danger item-right>{{group.incorrect}}</ion-badge></span>
-				<button small style="float: right" (click)="clearScore(group)">Clear</button>
+				<button small dark outline style="float: right" (click)="clearScore(group)">Clear</button>
 			</div>
 		</div>
 	</ion-card>
